@@ -1,0 +1,25 @@
+.bar {
+
+    animation-name: examplee;
+    animation-duration: 4s;
+    transition: 5s;
+    animation-iteration-count: infinite;
+
+
+
+}
+
+@keyframes examplee {
+    0% {
+        border: 2px solid rgb(2, 54, 8);
+    }
+
+
+    50% {
+        border: 2px solid rgb(95, 31, 5);
+    }
+
+    100% {
+        border: 2px solid rgb(25, 75, 7);
+    }
+}

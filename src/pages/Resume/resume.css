@@ -1,0 +1,28 @@
+.icon {
+
+    animation-name: example;
+    animation-duration: 4s;
+    transition: 5s;
+    animation-iteration-count: infinite;
+
+
+
+}
+
+@keyframes example {
+    0% {
+        background-color: none;
+    }
+
+    25% {
+        background-color: none;
+    }
+
+    50% {
+        background-color: rgb(243, 110, 2);
+    }
+
+    100% {
+        background-color: none;
+    }
+}
