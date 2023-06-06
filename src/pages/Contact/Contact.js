@@ -1,26 +1,56 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
+import logo from "../../assets/pic4.jpg";
 
 const Contact = () => {
-  const form = useRef();
+  const [product, setProduct] = useState({
+    name: "Product X",
+    price: "$10.00",
+  });
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+  //   // Define the email parameters
 
+  //   emailjs
+  //     .sendForm("service_1ayfgok", "template_c1qw5hr", "SycrR_zkRHfw4upto")
+  //     .then(
+  //       (result) => {
+  //         console.log(result);
+  //         toast.success("Email send successfully");
+  //       },
+  //       (error) => {
+  //         console.log(error.text);
+  //       }
+  //     );
+  // };
+
+  const handleOrder = () => {
+    // Define the email parameters
+    const templateParams = {
+      to_email: "thohidulislam800@gmail.com",
+      image_url: "https://example.com/image.png",
+      from_name: "Your Company",
+      message: `Dear Customer,\n\nThank you for your order of ${product.name} for ${product.price}. Your order has been received and is currently being processed. \n\nBest regards,\nYour Company
+
+      `,
+    };
+
+    // Send the email
     emailjs
-      .sendForm(
-        "service_1ayfgok",
-        "template_c1qw5hr",
-        form.current,
-        "SycrR_zkRHfw4upto"
+      .send(
+        "service_bcyx95k",
+        "template_9dmhaap",
+        templateParams,
+        "2NJrzAXNIW6J71M1W"
       )
       .then(
-        (result) => {
-          toast.success("Email send successfully");
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
         },
-        (error) => {
-          console.log(error.text);
+        function (error) {
+          console.log("FAILED...", error);
         }
       );
   };
@@ -31,7 +61,7 @@ const Contact = () => {
       <hr className="w-28 mt-4" />
       <div className=" mt-8">
         <div className=" border rounded-lg">
-          <form ref={form} onSubmit={sendEmail}>
+          <form>
             <div className="card  w-full shadow-2xl">
               <div className="card-body">
                 <div className="form-control">
